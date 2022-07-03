@@ -2,7 +2,6 @@ import Button from "./Button";
 
 const Header = ({ title }) => {
     // const {title} = props
-    console.log(title);
     return (
         <header className="header">
             <h1>{title}</h1>
@@ -12,7 +11,6 @@ const Header = ({ title }) => {
 };
 
 //! css in js
-
 // const headingStyle = {
 //     color: "red",
 //     backgroundColor: "black",
