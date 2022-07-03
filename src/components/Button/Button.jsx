@@ -4,7 +4,6 @@ import Input from "../Input/Input";
 
 const Button = () => {
   const [addTask, SetAddTask] = useState(true);
-  console.log(addTask);
   const handleButton = (e) => {
     if (e.target.innerText === "Show Add Task Bar") {
       e.target.style.backgroundColor = "red";

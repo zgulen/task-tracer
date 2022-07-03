@@ -1,15 +1,16 @@
 import React from "react";
 import styling from "./input.module.css";
 import { useState } from "react";
+import Tasks from "../Tasks/Tasks";
 
 const Input = () => {
   const [task, setTask] = useState("");
-  const [task1, setTask1] = useState("");
-  console.log(task);
-  console.log(task1);
+  const [daytime, setdaytime] = useState("");
+  const [btnClicked, setBtnClicked] = useState(false)
   const handleTask = () => {
-    
+    setBtnClicked(true)
   };
+
   return (
     <div>
       <div className={styling.firstinput}>
@@ -31,7 +32,7 @@ const Input = () => {
         <input
           type="text"
           onKeyUp={(e) => {
-            setTask1(e.target.value);
+            setdaytime(e.target.value);
           }}
           className={styling.form}
           id="day-time"
@@ -41,6 +42,7 @@ const Input = () => {
       <button className={styling.btn} onClick={handleTask}>
         Save Task
       </button>
+      {btnClicked === true ? <Tasks task={task} daytime={daytime}/> : null}
     </div>
   );
 };
