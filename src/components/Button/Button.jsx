@@ -1,24 +1,27 @@
 import styling from "./button.module.css";
 import { useState, useEffect } from "react";
-import Input from "../Input/Input"
+import Input from "../Input/Input";
 
 const Button = () => {
   const [addTask, SetAddTask] = useState(true);
   console.log(addTask);
-  const handleButton =() =>{
-    SetAddTask(!addTask)
-  }
-  const inputComp = () =>{
-    if (addTask=== false){
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae voluptates rerum.</p>
+  const handleButton = (e) => {
+    if (e.target.innerText === "Show Add Task Bar") {
+      e.target.style.backgroundColor = "red";
+    } else {
+      e.target.style.backgroundColor = "blueviolet";
     }
-  }
-    return (
-    <div>
+    SetAddTask(!addTask);
+  };
+
+  return (
+    <div className={styling.container}>
       {
-        <button onClick={handleButton}>{addTask === true ?"Show Add Task Bar" : "Close Add Task Bar"}</button>
+        <button className={styling.btn} onClick={handleButton}>
+          {addTask === true ? "Show Add Task Bar" : "Close Add Task Bar"}
+        </button>
       }
-      { addTask === false ? <Input /> : null }
+      {addTask === false ? <Input /> : null}
     </div>
   );
 };
