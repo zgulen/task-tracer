@@ -1,12 +1,11 @@
-
-import './App.css';
-import Button from "./components/Button/Button"
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='head'>Task Tracer</h1>
-      <Button/>
+    <div className="container">
+      <Header  />
+      
+      
       
     </div>
   );
