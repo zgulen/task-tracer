@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import { useState, useEffect } from "react";
 import AddTask from "./components/AddTask";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
       headers: {
         'Content-type': 'application/json'
       },
-      body:JSON.stringify(updTask)
+      body: JSON.stringify(updTask)
     })
 
     const data = await res.json()
@@ -80,15 +81,16 @@ function App() {
         : task))
   }
   return (
-    <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
-      {showAddTask && <AddTask addTask={addTask} />}
-      {tasks.length > 0
-        ? <Tasks tasks={tasks}
-          onDelete={deleteTask}
-          onToogle={toogleReminder} />
-        : "Nothing to Show"}
-    </div>
+      <div className="container">
+        <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+        {showAddTask && <AddTask addTask={addTask} />}
+        {tasks.length > 0
+          ? <Tasks tasks={tasks}
+            onDelete={deleteTask}
+            onToogle={toogleReminder} />
+          : "Nothing to Show"}            
+        <Footer />
+      </div>
   );
 }
 
